@@ -3,6 +3,7 @@ import Axios from "axios"
 const SET_CAMPUSES ="SET_CAMPUSES"
 const SINGLE_CAMPUS= "SINGLE_CAMPUS"
 const ADD_CAMPUS ="ADD_CAMPUS"
+const REMOVE_CAMPUS ="REMOVE_CAMPUS"
 
 
 
@@ -26,8 +27,12 @@ export const addCampus =(campus) =>{
   }
 }
 
-
-
+export const removeCampus = (campus)=>{
+  return{
+    type:REMOVE_CAMPUS,
+    campus
+  }
+}
 
 export const fetchCampuses = () => {
   return async dispatch => {
@@ -65,6 +70,18 @@ export const postCampus=()=>{
   }
 }
 
+export const deleteCampus=(id)=>{
+  return async dispatch =>{
+    try{
+      const {data} =await Axios.delete(`/api/campuses/${id}`)
+      dispatch(removeCampus(data))
+    }
+    catch(err){
+      next(err)
+    }
+  }
+}
+
 const initialState={
   campuses:[],
   singleCampus:{}
@@ -77,6 +94,8 @@ export default function campusesReducer(state= initialState,action) {
     case SINGLE_CAMPUS:
       return{...state, singleCampus:action.campus}
     case ADD_CAMPUS:
+      return{...state, campuses:[...state.campuses,action.campus]}
+    case REMOVE_CAMPUS:
       return{...state, campuses:[...state.campuses,action.campus]}
     default:
       return state

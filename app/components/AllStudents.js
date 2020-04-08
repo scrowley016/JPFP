@@ -2,6 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 import {fetchStudents} from "../redux/students/students"
 import Students from './Student'
+import StudentForm from './StudentForm'
 
 // Notice that we're exporting the AllStudents component twice. The named export
 // (below) is not connected to Redux, while the default export (at the very
@@ -20,12 +21,17 @@ export class AllStudents extends React.Component {
     let students =this.props.students
     return(
       <div>
+      <div>
         {
           students && students.map (stu =>
             <div key= {stu.id}>
                 <Students students={stu}/>
               </div>)
         }
+      </div>
+      <div>
+        <StudentForm/>
+      </div>
       </div>
     )
   }

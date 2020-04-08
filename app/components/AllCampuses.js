@@ -2,6 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 import Campus from './Campus'
 import {fetchCampuses} from "../redux/campus/campuses"
+import CampusForm from "./CampusForm";
 
 // Notice that we're exporting the AllCampuses component twice. The named export
 // (below) is not connected to Redux, while the default export (at the very
@@ -9,16 +10,26 @@ import {fetchCampuses} from "../redux/campus/campuses"
 export class AllCampuses extends React.Component {
   constructor(){
     super()
-
+    this.addCampus=this.addCampus.bind(this)
+    this.removeCampus=this.removeCampus.bind(this)
   }
+
   componentDidMount(){
     this.props.fetchCampuses()
+  }
 
+  addCampus(){
+    this.props.addCampus(this.props.match.params.id)
+  }
+
+  removeCampus(){
+    this.props.removeCampus(this.props.match.params.id)
   }
 
   render() {
     let allCamps= this.props.campuses
     return(
+      <div>
       <div>
         {
           allCamps && allCamps.map(camp =>
@@ -26,6 +37,11 @@ export class AllCampuses extends React.Component {
               <Campus campuses={camp}/>
             </div>)
         }
+      </div>
+
+      <div>
+        <CampusForm addCampus={this.addCampus}/>
+      </div>
       </div>
     )
   }
@@ -39,7 +55,9 @@ const mapState = (state) => {
 
 const mapDispatch = (dispatch) => {
   return {
-    fetchCampuses: ()=> dispatch(fetchCampuses())
+    fetchCampuses: ()=> dispatch(fetchCampuses()),
+    addCampus:(id)=> dispatch(addCampus(id)),
+    removeCampus:(id)=>dispatch(removeCampus(id))
   };
 };
 

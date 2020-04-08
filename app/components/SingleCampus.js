@@ -12,7 +12,6 @@ class SingleCampus extends React.Component{
         this.props.fetchSingleCampus(this.props.match.params.id)
     }
     render(){
-        console.log(this.props.campuses)
         const campus= this.props.campuses
         return(
             <div>
@@ -20,6 +19,15 @@ class SingleCampus extends React.Component{
                 <h2>Name:{campus.name}</h2>
                 <h3> Address: {campus.address} </h3>
                 <h3> About this Campus: {campus.description}</h3>
+                {/* <li>{
+                this.props && this.props.students.map(stu=>{
+                    if(stu.campusId=== campus.id){
+                        return(<div>
+                            <h3>{stu.firstName} {stu.lastName}</h3>
+                            </div>)
+                    }
+                })
+                }</li> */}
             </div>
         )
     }
