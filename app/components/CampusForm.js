@@ -7,18 +7,18 @@ const CampusForm =(props) => (
             <label htmlFor = 'campusName'>
                 Campus Name:
             </label>
-            <input name='name' type='string' onChange={props.addCampus} value={props.name} />
+            <input name='name' type='string' onChange={props.handleChange} value={props.name} />
         </div>
 
         <div>
             <label htmlFor = 'address'>
                 Address:
             </label>
-            <input name='address' type='string' onChange={props.addCampus} value={props.address} />
+            <input name='address' type='string' onChange={props.handleChange} value={props.address} />
         </div>
         </div>
 
-        <button type='submit' onSubmit={props.addCampus}>SUBMIT</button>
+        <button type='submit' onSubmit={props.handleSubmit}>SUBMIT</button>
     </form>
 )
 

@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import Campus from './Campus'
 import {fetchCampuses} from "../redux/campus/campuses"
 import CampusForm from "./CampusForm";
+import  AddCampus  from "./AddCampus";
 
 // Notice that we're exporting the AllCampuses component twice. The named export
 // (below) is not connected to Redux, while the default export (at the very
@@ -40,7 +41,7 @@ export class AllCampuses extends React.Component {
       </div>
 
       <div>
-        <CampusForm addCampus={this.addCampus}/>
+        <AddCampus addCampus={this.addCampus}/>
       </div>
       </div>
     )
