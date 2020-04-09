@@ -1,4 +1,8 @@
-router.get('/campuses', async (req,res,next)=>{
+const router = require("express").Router();
+const Campus = require('../db/campus')
+
+
+router.get('/', async (req,res,next)=>{
     try{
       const camp = await Campus.findAll()
       res.json(camp)
@@ -8,7 +12,7 @@ router.get('/campuses', async (req,res,next)=>{
     }
   })
   
-  router.get('/campuses/:id', async(req,res,next)=>{
+  router.get('/:id', async(req,res,next)=>{
     try{
       const oneCamp=await Campus.findByPk(
         req.params.id
@@ -24,7 +28,7 @@ router.get('/campuses', async (req,res,next)=>{
     }
   })
   
-  router.post('/campuses', async(req,res,next)=>{
+  router.post('/', async(req,res,next)=>{
     try{
       const newCampus = await Campus.create(req.body)
       res.json(newCampus)
@@ -34,7 +38,7 @@ router.get('/campuses', async (req,res,next)=>{
     }
   })
   
-  router.delete('/campuses/:id', async(req,res,next)=>{
+  router.delete('/:id', async(req,res,next)=>{
    try{
      const deleted= await Campus.destroy({
        where:{id:req.params.id}
@@ -46,7 +50,7 @@ router.get('/campuses', async (req,res,next)=>{
     }
   })
   
-  router.put('/campuses/:id', async(req,res,next)=>{
+  router.put('/:id', async(req,res,next)=>{
     try{
       const camp= await Campus.findByPk(req.params.id)
       const update= await camp.update(req.body)
@@ -56,3 +60,5 @@ router.get('/campuses', async (req,res,next)=>{
       next(err)
     }
   })
+
+  module.exports=router
