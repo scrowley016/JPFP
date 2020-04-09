@@ -9,49 +9,56 @@ const studentData=[
     lastName:"Scott",
     email:"mscott@dundermifflin.com",
     imageUrl:"https://www.lifeandstylemag.com/wp-content/uploads/2016/08/michael-scott-quote-the-office-2.jpg?fit=1049%2C600",
-    gpa:"2.4"
+    gpa:"2.4",
+    campusId:1
   },
   {
     firstName:"Pam",
     lastName:"Beesley",
     email:"phalpert@dundermifflin.com",
     imageUrl:"https://static.independent.co.uk/s3fs-public/thumbnails/image/2017/02/08/15/the-dundies.jpeg",
-    gpa:"3.3"
+    gpa:"3.3",
+    campusId:1
   },
   {
     firstName:"Jim",
     lastName:"Halpert",
     email:"jhalpert@dundermifflin.com",
     imageUrl:"https://i.pinimg.com/originals/fc/a7/3b/fca73be82239f623bf006ad4601cb156.jpg",
-    gpa:"3.2"
+    gpa:"3.2",
+    campusId:1
   },
   {
     firstName:"Karen",
     lastName:"Filippelli",
     email:"kfilippelli@dundermifflin.com",
     imageUrl:"https://i.pinimg.com/564x/f1/c6/a6/f1c6a6371a4d209a62d1a6bd14c86c11.jpg",
-    gpa:"3.1"
+    gpa:"3.1",
+    campusId:4
   },
   {
     firstName:"David",
     lastName:"Wallace",
     email:"ceo@dundermifflin.com",
     imageUrl:"https://vignette.wikia.nocookie.net/theoffice/images/a/a4/Suckdezznutz.jpg/revision/latest/scale-to-width-down/340?cb=20180826180928",
-    gpa:"2.8"
+    gpa:"2.8",
+    campusId:5
   },
   {
     firstName:"Dwight",
     lastName:"Schrute",
     email:"dschrute@dundermifflin.com",
     imageUrl:"https://www.lifeandstylemag.com/wp-content/uploads/2015/11/the-office-prank-11.jpg?fit=640%2C360",
-    gpa:"3.9"
+    gpa:"3.9",
+    campusId:1
   },
   {
     firstName:"Holly",
     lastName:"Flax",
     email:"hflax@dundermifflin.com",
     imageUrl:"https://pbs.twimg.com/media/D13ga49WsAIKeP8.jpg",
-    gpa:"2.9"
+    gpa:"2.9",
+    campusId:3
   },
   {
     firstName:"Jan",
@@ -59,20 +66,23 @@ const studentData=[
     email:"jlevinson@dundermifflin.com",
     imageUrl:"https://www.nbc.com/sites/nbcunbc/files/files/images/2016/4/27/efd5ffec039c2087301abf87215b7c6d_16245ef2da2136329fc228fc7c1d3329.jpg",
     gpa:"3.3"
+
   },
   {
     firstName:"Ryan",
     lastName:"Howard",
     email:"temp@dundermifflin.com",
     imageUrl:"https://vignette.wikia.nocookie.net/theoffice/images/d/d9/Blondryan.jpg/revision/latest?cb=20181107223529",
-    gpa:"2.2"
+    gpa:"2.2",
+    campusId:1
   },
   {
     firstName:"Creed",
     lastName:"Bratton",
     email:"www.creedthoughts.gov.www/creedthoughts",
     imageUrl:"//i.ytimg.com/vi/kNdgPeEeJxw/maxresdefault.jpg",
-    gpa:"1.2"
+    gpa:"1.2",
+    campusId:1
   }
 ]
 

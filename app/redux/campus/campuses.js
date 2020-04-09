@@ -7,7 +7,6 @@ const REMOVE_CAMPUS ="REMOVE_CAMPUS"
 const UPDATE_CAMPUS ="UPDATE_CAMPUS"
 
 
-
 export const setCampuses = (campuses) => {
   return{
     type: SET_CAMPUSES,
@@ -27,20 +26,21 @@ export const setNewCampus =(campus) =>{
     campus
   }
 }
-
 export const removeCamp = (campusId)=>{
   return{
     type:REMOVE_CAMPUS,
     campusId
   }
 }
-
 export const updateCampus =(campus)=>{
   return{
     type:UPDATE_CAMPUS,
     campus
   }
 }
+
+
+
 
 export const fetchCampuses = () => {
   return async dispatch => {
@@ -90,17 +90,21 @@ export const deleteCampus=(id)=>{
   }
 }
 
-export const changeCampus=(event)=>{
+export const changeCampus=(campus)=>{
   return async dispatch=>{
     try{
-      const res = await Axios.put(`/api/campuses/${id}` , event)
-      dispatch(updateCampus(res.data))
+      const {data} = await Axios.put(`/api/campuses/${campus.id}`, campus)
+      dispatch(updateCampus(data))
     }
     catch(error){
       dispatch(console.error(error))
     }
   }
 }
+
+
+
+
 
 const initialState={
   campuses:[],

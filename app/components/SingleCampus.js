@@ -8,14 +8,16 @@ import UpdateCampus from './UpdateCampus'
 class SingleCampus extends React.Component{
     constructor(props){
         super(props)
+        this.updateCampus=this.updateCampus.bind(this)
     }
+
     componentDidMount(){
-        console.log(this.props)
         this.props.fetchSingleCampus(this.props.match.params.id)
     }
-    updateCampus(){
-        console.log(this.props)
-        this.props.changeCampus(this.props.match.params.id)
+
+    updateCampus(campus){
+        console.log("SINGLE CAMPUS", campus)
+        this.props.changeCampus(campus)
       } 
 
 
@@ -28,8 +30,10 @@ class SingleCampus extends React.Component{
                 <h3> Address: {campus.address} </h3>
                 <h3> About this Campus: {campus.description}</h3>
 
-                <h2>Update Campus Below:</h2>
-                <UpdateCampus updateCampus={this.updateCampus}/>
+                <div>
+                    <h2>Update Campus Below:</h2>
+                    <UpdateCampus updateCampus={this.updateCampus} id={campus.id}/>
+                </div>
             </div>
         )
     }
@@ -42,7 +46,7 @@ const mapState = (state) => {
   };
 
 const mapDispatch=(dispatch)=> ({
-    fetchSingleCampus: (id)=> dispatch(fetchSingleCampus(id)),
+    fetchSingleCampus:(id)=> dispatch(fetchSingleCampus(id)),
     changeCampus:(id)=> dispatch(changeCampus(id))
 
 })

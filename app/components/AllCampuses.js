@@ -1,8 +1,8 @@
 import React from "react";
 import { connect } from "react-redux";
 import Campus from './Campus'
-import {fetchCampuses, postCampus, deleteCampus, changeCampus} from "../redux/campus/campuses"
-import CampusForm from "./CampusForm";
+import {fetchCampuses, postCampus, deleteCampus} from "../redux/campus/campuses"
+
 import  AddCampus  from "./AddCampus";
 
 // Notice that we're exporting the AllCampuses component twice. The named export
@@ -29,6 +29,7 @@ export class AllCampuses extends React.Component {
 
   render() {
     let allCamps= this.props.campuses
+    console.log(this.props)
     return(
       <div>
       <div>

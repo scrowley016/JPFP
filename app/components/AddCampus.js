@@ -8,7 +8,7 @@ export default class AddCampus extends React.Component{
             name:"",
             address:"",
             description:"",
-            imageUrl:""
+            
         }
         this.handleChange=this.handleChange.bind(this)
         this.handleSubmit=this.handleSubmit.bind(this)
@@ -20,14 +20,11 @@ export default class AddCampus extends React.Component{
 
     handleSubmit(event){
         event.preventDefault()
-        console.log(this.state)
-        console.log(event)
         try{
             const updateState={
                 name:this.state.name,
                 address:this.state.address,
                 description:this.state.description,
-                imageUrl:this.state.imageUrl
             }
             this.props.addCampus(updateState)
         }      

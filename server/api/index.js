@@ -52,6 +52,17 @@ router.delete('/campuses/:id', async(req,res,next)=>{
   }
 })
 
+router.put('/campuses/:id', async(req,res,next)=>{
+  try{
+    const camp= await Campus.findByPk(req.params.id)
+    const update= await camp.update(req.body)
+    res.json(update)
+  }
+  catch(err){
+    next(err)
+  }
+})
+
 
 
 
@@ -93,6 +104,28 @@ router.post('/students', async(req,res,next)=>{
   }
 })
 
+router.delete('/students/:id', async(req,res,next)=>{
+  try{
+    const deleted= await Students.destroy({
+      where:{id:req.params.id}
+    })
+    res.sendStatus(204)
+   }
+   catch(err){
+     next(err)
+   }
+ })
+
+ router.put('/students/:id', async(req,res,next)=>{
+  try{
+    const student= await Students.findByPk(req.params.id)
+    const update= await student.update(req.body)
+    res.json(update)
+  }
+  catch(err){
+    next(err)
+  }
+})
 
 
 

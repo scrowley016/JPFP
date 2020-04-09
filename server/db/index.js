@@ -11,7 +11,7 @@ const Campus = require('./campus')
 //
 // Puppy.belongsTo(Owner)
 
-Student.belongsTo(Campus,{as:'campus'})
+Student.belongsTo(Campus)
 Campus.hasMany(Student)
 
 module.exports = {

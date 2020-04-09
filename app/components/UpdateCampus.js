@@ -6,9 +6,7 @@ export default class UpdateCampus extends React.Component{
         super(props)
         this.state={
             name:"",
-            address:"",
-            description:"",
-            imageUrl:""
+            address:""
         }
         this.handleChange= this.handleChange.bind(this)
         this.handleSubmit=this.handleSubmit.bind(this)
@@ -17,15 +15,16 @@ export default class UpdateCampus extends React.Component{
         this.setState({[event.target.name]: event.target.value})
         console.log(this.state)
     }
+
     handleSubmit(event){
         event.preventDefault()
         try{
             const updateState={
+                id: this.props.id,
                 name:this.state.name,
-                address:this.state.address,
-                description:this.state.description,
-                imageUrl:this.state.imageUrl
+                address:this.state.address
             }
+        console.log("STATE",this.state)
         this.props.updateCampus(updateState)
         }
         catch(err){

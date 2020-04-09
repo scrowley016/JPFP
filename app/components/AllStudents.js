@@ -1,8 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
-import {fetchStudents, postStudent} from "../redux/students/students"
+import {fetchStudents, postStudent, deleteStudent} from "../redux/students/students"
 import Students from './Student'
-import StudentForm from './StudentForm'
 import AddStudent from './AddStudent'
 
 // Notice that we're exporting the AllStudents component twice. The named export
@@ -24,8 +23,7 @@ export class AllStudents extends React.Component {
   }
 
   removeStudent(id){
-    const deleteStu= this.props.match.params.id
-    this.props.removeCampus(deleteStu)
+    this.props.deleteStudent(id)
   }
 
   render() {
@@ -34,8 +32,8 @@ export class AllStudents extends React.Component {
       <div>
       <div>
         {
-          students && students.map (stu =>
-            <div key= {stu.id}>
+          students && students.map(stu =>
+            <div key={stu.id}>
                 <Students students={stu}/>
                 <button onClick={()=>this.removeStudent(stu.id)}>X</button>
               </div>)
@@ -59,8 +57,8 @@ const mapState = (state) => {
 const mapDispatch = (dispatch) => {
   return {
     fetchStudents:()=>dispatch(fetchStudents()),
-    postStudent:(props)=> dispatch(postStudent(props)),
-    removeStudents:(id)=>dispatch(removeStudents(id))
+    postStudent:(id)=> dispatch(postStudent(id)),
+    deleteStudent:(id)=> dispatch(deleteStudent(id))
   };
 };
 
