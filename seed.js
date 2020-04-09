@@ -90,13 +90,13 @@ const campusData=[
   {
     name:"Scranton",
     address:"1725 Slough Ave",
-    description:"The People Persons Papaer People",
+    description:"The People Persons Paper People",
     imageUrl:"https://lokagraph.com/wp-content/uploads/2018/05/dunder-Mifflin-building-the-office-where-location.jpg"
   },
   {
     name:"Buffalo",
     address:"1 Bills Dr.",
-    description:"",
+    description:"Go Bills",
     imageUrl:"https://www.wanderlustingk.com/wp-content/uploads/2018/07/bigstock-Buffalo-City-Hall-New-York-133868795-copy.jpg"
   },
   {

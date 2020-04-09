@@ -1,8 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import Campus from './Campus'
-import {fetchCampuses, postCampus, deleteCampus} from "../redux/campus/campuses"
-
+import { fetchCampuses, postCampus, deleteCampus } from "../redux/campus/campuses"
 import  AddCampus  from "./AddCampus";
 
 // Notice that we're exporting the AllCampuses component twice. The named export
@@ -37,7 +36,7 @@ export class AllCampuses extends React.Component {
           allCamps && allCamps.map(camp =>
             <div key={camp.id}>
               <Campus campuses={camp}/>
-              <button onClick={()=>this.removeCampus(camp.id)}>X</button>
+              <button onClick={ () =>this.removeCampus(camp.id)}> X </button>
             </div>)
         }
       </div>
@@ -61,7 +60,7 @@ const mapDispatch = (dispatch) => {
   return {
     fetchCampuses:()=> dispatch(fetchCampuses()),
     postCampus:(id)=> dispatch(postCampus(id)),
-    deleteCampus:(id)=>dispatch(deleteCampus(id))
+    deleteCampus:(id)=> dispatch(deleteCampus(id))
   };
 };
 

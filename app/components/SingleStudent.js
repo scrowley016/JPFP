@@ -2,6 +2,7 @@ import React from 'react'
 import {connect} from "react-redux"
 import Axios from 'axios'
 import {fetchSingleStudent} from "../redux/students/students"
+import {Link} from 'react-router-dom'
 
 class SingleStudent extends React.Component{
     constructor(props){
@@ -10,6 +11,7 @@ class SingleStudent extends React.Component{
     componentDidMount(){
         this.props.fetchSingleStudent(this.props.match.params.id)
     }
+
     render(){
         const stu = this.props.students
         return(
@@ -18,6 +20,9 @@ class SingleStudent extends React.Component{
                 <h2> Name:{stu.firstName} {stu.lastName}</h2>
                 <h3>Email: {stu.email}</h3>
                 <h3>GPA:{stu.gpa}</h3>
+                <Link to = {`/campuses/${stu.campusId}`}>
+                        <h3>Campus Name:{stu.campusId}</h3>
+                </Link>
             </div>
         )
     }

@@ -27,7 +27,7 @@ export class AllStudents extends React.Component {
   }
 
   render() {
-    let students =this.props.students
+    let students = this.props.students
     return(
       <div>
       <div>
@@ -35,7 +35,7 @@ export class AllStudents extends React.Component {
           students && students.map(stu =>
             <div key={stu.id}>
                 <Students students={stu}/>
-                <button onClick={()=>this.removeStudent(stu.id)}>X</button>
+                <button onClick={ () =>this.removeStudent(stu.id)}> X </button>
               </div>)
         }
       </div>
@@ -56,7 +56,7 @@ const mapState = (state) => {
 
 const mapDispatch = (dispatch) => {
   return {
-    fetchStudents:()=>dispatch(fetchStudents()),
+    fetchStudents:()=> dispatch(fetchStudents()),
     postStudent:(id)=> dispatch(postStudent(id)),
     deleteStudent:(id)=> dispatch(deleteStudent(id))
   };

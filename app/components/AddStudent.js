@@ -7,15 +7,17 @@ export default class AddStudent extends React.Component{
         this.state={
             firstName:"",
             lastName:"",
-            email:"",
+            email:""
         }
         this.handleChange=this.handleChange.bind(this)
         this.handleSubmit=this.handleSubmit.bind(this)
     }
+
     handleChange(event){
         this.setState({[event.target.name]:event.target.value})
         console.log(this.state)
     }
+
     handleSubmit(event){
         event.preventDefault()
         try{
