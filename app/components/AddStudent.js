@@ -1,8 +1,7 @@
 import React from 'react'
-
 import StudentForm from './StudentForm'
 
-export default class addStudent extends React.Component{
+export default class AddStudent extends React.Component{
     constructor(props){
         super(props)
         this.state={
@@ -17,6 +16,7 @@ export default class addStudent extends React.Component{
     }
     handleChange(event){
         this.setState({[event.target.name]:event.target.value})
+        console.log(this.state)
     }
     handleSubmit(){
         event.preventDefault()

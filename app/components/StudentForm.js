@@ -4,17 +4,17 @@ const StudentForm =(props) => (
    <form id='add-student' onSubmit={props.handleSubmit}>
     <div>
     <div>
-        <label htmlFor = 'firstName' >
+        <label htmlFor = 'firstname' >
             First Name:
         </label>
-        <input firstname='firstName' type='string' onChange={props.handleChange} value={props.firstName} />
+        <input firstname='firstname' type='string' onChange={props.handleChange} value={props.firstName} />
     </div>
 
     <div>
-        <label htmlFor = 'lastName'>
+        <label htmlFor = 'lastname'>
             Last Name:
         </label>
-        <input lastname='lastName' type='string' onChange={props.handleChange} value={props.lastName} />
+        <input lastname='lastname' type='string' onChange={props.handleChange} value={props.lastName} />
     </div>
 
     <div>

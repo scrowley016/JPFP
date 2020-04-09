@@ -19,7 +19,7 @@ export default class AddCampus extends React.Component{
     }
 
     handleSubmit(){
-         event.preventDefault()
+        event.preventDefault()
         try{
             this.props.addCampus(this.state)
         }

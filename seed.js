@@ -57,7 +57,7 @@ const studentData=[
     firstName:"Jan",
     lastName:"Levinson",
     email:"jlevinson@dundermifflin.com",
-    imageUrl:"https://lh3.googleusercontent.com/proxy/B2IeUPF6-yF3uh4kix41NNuV725yT4l6HwRTEjVu5ObMzAIgPgRSg_EpbZuLX44ReeBQ0o608iCRWwEfKOv6ioeF7H-oV3U7VkXO6EZzz6FtewnE53zxRpCx6XwfWd7OZPKo4INGePQQTsaxw8vbp_J7hyxE0WxhjCdG",
+    imageUrl:"https://www.nbc.com/sites/nbcunbc/files/files/images/2016/4/27/efd5ffec039c2087301abf87215b7c6d_16245ef2da2136329fc228fc7c1d3329.jpg",
     gpa:"3.3"
   },
   {

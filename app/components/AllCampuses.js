@@ -23,7 +23,7 @@ export class AllCampuses extends React.Component {
     this.props.postCampus()
   }
 
-  removeCampus(props){
+  removeCampus(id){
     this.props.removeCampus(this.props.match.params.id)
   }
 

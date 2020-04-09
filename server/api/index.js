@@ -30,6 +30,20 @@ router.get('/campuses/:id', async(req,res,next)=>{
   }
 })
 
+router.post('/campuses', async(req,res,next)=>{
+  try{
+    const newCampus = await Campus.create(req.body)
+    res.json(newCampus)
+  }
+  catch(err){
+    res.status(500).send("cannot create")
+  }
+})
+
+
+
+
+
 router.get('/students', async (req, res,next)=>{
   try{
     const stu = await Students.findAll()
@@ -57,15 +71,20 @@ router.get('/students/:id', async(req,res,next)=>{
 })
 
 
-router.post('/campuses', async(req,res,next)=>{
+router.post('/students', async(req,res,next)=>{
   try{
-    const newCampus = await Campus.create(req.body)
-    res.json(newCampus)
+    const newStudent = await Students.create(req.body)
+    res.json(newStudent)
   }
   catch(err){
     res.status(500).send("cannot create")
   }
 })
+
+
+
+
+
 
 
 router.use((req, res, next) => {
