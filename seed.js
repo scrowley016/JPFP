@@ -91,20 +91,20 @@ const campusData=[
   },
   {
     name:"Nashua",
-    address:"",
-    description:"",
+    address:"123 Holly Way",
+    description:"New Hampshire is nice I guess",
     imageUrl:"https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcT_et__sEx4MXC57AluJN3ueRHkOcnCuDczZv6J1zEzAfEx37Jm&usqp=CAU"
   },
   {
     name:"Utica",
-    address:"",
-    description:"",
+    address:"546 Xerox Ave.",
+    description:"Why",
     imageUrl:"https://vignette.wikia.nocookie.net/theoffice/images/1/16/Uticabranch.jpg/revision/latest/scale-to-width-down/340?cb=20071102155924"
   },
   {
     name:"Corporate-New York",
-    address:"",
-    description:"",
+    address:"5 Hanover Square",
+    description:" New York, New York",
     imageUrl:"https://vignette.wikia.nocookie.net/theoffice/images/d/dd/DunderMifflinCorporateOffice.jpg/revision/latest/scale-to-width-down/340?cb=20070823184351"
   }
 

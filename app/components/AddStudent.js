@@ -1,41 +1,39 @@
 import React from 'react'
-import CampusForm from './CampusForm'
 
-export default class AddCampus extends React.Component{
+import StudentForm from './StudentForm'
+
+export default class addStudent extends React.Component{
     constructor(props){
         super(props)
         this.state={
-            name:"",
-            address:"",
-            description:"",
-            imageUrl:""
+            firstName:"",
+            lastName:"",
+            email:"",
+            imageUrl:"",
+            gpa:0.0
         }
         this.handleChange=this.handleChange.bind(this)
         this.handleSubmit=this.handleSubmit.bind(this)
     }
     handleChange(event){
         this.setState({[event.target.name]:event.target.value})
-        console.log(this.state)
     }
-
     handleSubmit(){
-         event.preventDefault()
+        event.preventDefault()
         try{
-            this.props.addCampus(this.state)
+            this.props.addStudent(this.state)
+            console.log(this.state)
         }
         catch(err){
             next(err)
         }
-
     }
 
     render(){
         return(
             <div>
-                <CampusForm handleChange={this.handleChange} handleSubmit={this.handleSubmit}/>
+                <StudentForm handleChange={this.handleChange} handleSubmit={this.handleSubmit}/>
             </div>
-    
         )
     }
-    
 }

@@ -27,7 +27,7 @@ The requirements below are broken into separate **tiers**, which model the way w
   - [x ] address - not empty or null
   - [ x] description - extremely large text
 - Write a `students` model with the following information:
-  - [ ] firstName - not empty or null
+  - [ x] firstName - not empty or null
   - [ x] lastName - not empty or null
   - [ x] email - not empty or null; must be a valid email
   - [x ] imageUrl - with a default value
@@ -82,19 +82,19 @@ Congrats! You have completed your second vertical slice! Make sure to `commit -m
 - [ x] Display this component EITHER as part of the all-campuses view, or as its own view
 - Submitting the form with a valid name/address should:
 
-  - [ ] Make an AJAX request that causes the new campus to be persisted in the database
-  - [ ] Add the new campus to the list of campuses without needing to refresh the page
+  - [ x] Make an AJAX request that causes the new campus to be persisted in the database
+  - [ x] Add the new campus to the list of campuses without needing to refresh the page
 
 - [ x] Write a component to display a form for adding a new student that contains inputs for _at least_ first name, last name and email
 - [ x] Display this component EITHER as part of the all-students view, or as its own view
 - Submitting the form with a valid first name/last name/email should:
-  - [ ] Make an AJAX request that causes the new student to be persisted in the database
-  - [ ] Add the new student to the list of students without needing to refresh the page
+  - [x ] Make an AJAX request that causes the new student to be persisted in the database
+  - [ x] Add the new student to the list of students without needing to refresh the page
 
 #### Backend
 
-- [ ] Write a route to add a new campus
-- [ ] Write a route to add a new student
+- [ x] Write a route to add a new campus
+- [ x] Write a route to add a new student
 
 Congrats! You have completed your third vertical slice! Make sure to `commit -m "Feature: Add Campus and Student"` before moving on (see RUBRIC.md - points are awarded/deducted for a proper git workflow)!
 

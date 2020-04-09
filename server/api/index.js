@@ -56,6 +56,18 @@ router.get('/students/:id', async(req,res,next)=>{
   }
 })
 
+
+router.post('/campuses', async(req,res,next)=>{
+  try{
+    const newCampus = await Campus.create(req.body)
+    res.json(newCampus)
+  }
+  catch(err){
+    res.status(500).send("cannot create")
+  }
+})
+
+
 router.use((req, res, next) => {
   const err = new Error("API route not found!");
   err.status = 404;

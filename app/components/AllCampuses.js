@@ -1,7 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import Campus from './Campus'
-import {fetchCampuses} from "../redux/campus/campuses"
+import {fetchCampuses, postCampus} from "../redux/campus/campuses"
 import CampusForm from "./CampusForm";
 import  AddCampus  from "./AddCampus";
 
@@ -20,10 +20,10 @@ export class AllCampuses extends React.Component {
   }
 
   addCampus(){
-    this.props.addCampus(this.props.match.params.id)
+    this.props.postCampus()
   }
 
-  removeCampus(){
+  removeCampus(props){
     this.props.removeCampus(this.props.match.params.id)
   }
 
@@ -57,7 +57,7 @@ const mapState = (state) => {
 const mapDispatch = (dispatch) => {
   return {
     fetchCampuses: ()=> dispatch(fetchCampuses()),
-    addCampus:(id)=> dispatch(addCampus(id)),
+    postCampus:(id)=> dispatch(postCampus(id)),
     removeCampus:(id)=>dispatch(removeCampus(id))
   };
 };
