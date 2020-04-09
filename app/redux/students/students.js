@@ -19,14 +19,14 @@ export const setSingleStudent =(student)=>{
   }
 }
 
-export const addStudent =(student)=>{
+export const setNewStudent =(student)=>{
   return{
     type:ADD_STUDENT,
     student
   }
 }
 
-export const removeStudent =(student)=>{
+export const removeStu =(student)=>{
   return{
     type:REMOVE_STUDENT,
     student
@@ -59,14 +59,14 @@ export const fetchSingleStudent=(id)=>{
   }
 }
 
-export const postStudent=()=>{
+export const postStudent=(event)=>{
   return async dispatch =>{
     try{
-      const {data} = await Axios.post("/api/students")
-      dispatch(addStudent(data))
+      const {data} = await Axios.post("/api/students", event)
+      dispatch(setNewStudent(data))
     }
     catch(err){
-      next(err)
+      dispatch(console.error(error))
     }
   }
 }
@@ -78,7 +78,7 @@ export const deleteStudent=(id)=>{
       dispatch(removeStudent(data))
     }
     catch(err){
-      next(err)
+      dispatch(console.lerrer(error))
     }
   }
 }

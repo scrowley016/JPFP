@@ -1,7 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import Campus from './Campus'
-import {fetchCampuses, postCampus} from "../redux/campus/campuses"
+import {fetchCampuses, postCampus, deleteCampus, changeCampus} from "../redux/campus/campuses"
 import CampusForm from "./CampusForm";
 import  AddCampus  from "./AddCampus";
 
@@ -19,12 +19,12 @@ export class AllCampuses extends React.Component {
     this.props.fetchCampuses()
   }
 
-  addCampus(){
-    this.props.postCampus()
+  addCampus(event){
+    this.props.postCampus(event)
   }
 
   removeCampus(id){
-    this.props.removeCampus(this.props.match.params.id)
+    this.props.deleteCampus(id)
   }
 
   render() {
@@ -36,11 +36,13 @@ export class AllCampuses extends React.Component {
           allCamps && allCamps.map(camp =>
             <div key={camp.id}>
               <Campus campuses={camp}/>
+              <button onClick={()=>this.removeCampus(camp.id)}>X</button>
             </div>)
         }
       </div>
 
       <div>
+        <h2> Add A Campus Below:</h2>
         <AddCampus addCampus={this.addCampus}/>
       </div>
       </div>
@@ -56,9 +58,9 @@ const mapState = (state) => {
 
 const mapDispatch = (dispatch) => {
   return {
-    fetchCampuses: ()=> dispatch(fetchCampuses()),
+    fetchCampuses:()=> dispatch(fetchCampuses()),
     postCampus:(id)=> dispatch(postCampus(id)),
-    removeCampus:(id)=>dispatch(removeCampus(id))
+    deleteCampus:(id)=>dispatch(deleteCampus(id))
   };
 };
 

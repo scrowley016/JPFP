@@ -4,6 +4,7 @@ const SET_CAMPUSES ="SET_CAMPUSES"
 const SINGLE_CAMPUS= "SINGLE_CAMPUS"
 const ADD_CAMPUS ="ADD_CAMPUS"
 const REMOVE_CAMPUS ="REMOVE_CAMPUS"
+const UPDATE_CAMPUS ="UPDATE_CAMPUS"
 
 
 
@@ -20,16 +21,23 @@ export const setSingleCampus =(campus)=>{
     campus
   }
 }
-export const addCampus =(campus) =>{
+export const setNewCampus =(campus) =>{
   return{
     type:ADD_CAMPUS,
     campus
   }
 }
 
-export const removeCampus = (campus)=>{
+export const removeCamp = (campusId)=>{
   return{
     type:REMOVE_CAMPUS,
+    campusId
+  }
+}
+
+export const updateCampus =(campus)=>{
+  return{
+    type:UPDATE_CAMPUS,
     campus
   }
 }
@@ -58,14 +66,14 @@ export const fetchSingleCampus=(id)=>{
   }
 }
 
-export const postCampus=()=>{
+export const postCampus=(event)=>{
   return async dispatch=>{
     try{
-      const {data}= await Axios.post("/api/campuses")
-      dispatch(addCampus(data))
+      const {data}= await Axios.post("/api/campuses", event)
+      dispatch(setNewCampus(data))
     }
-    catch(err){
-      next(err)
+    catch(error){
+      dispatch(console.error(error))
     }
   }
 }
@@ -73,11 +81,23 @@ export const postCampus=()=>{
 export const deleteCampus=(id)=>{
   return async dispatch =>{
     try{
-      const {data} =await Axios.delete(`/api/campuses/${id}`)
-      dispatch(removeCampus(data))
+      await Axios.delete(`/api/campuses/${id}`)
+      dispatch(removeCamp(id))
     }
-    catch(err){
-      next(err)
+    catch(error){
+      dispatch(console.error(error))
+    }
+  }
+}
+
+export const changeCampus=(event)=>{
+  return async dispatch=>{
+    try{
+      const res = await Axios.put(`/api/campuses/${id}` , event)
+      dispatch(updateCampus(res.data))
+    }
+    catch(error){
+      dispatch(console.error(error))
     }
   }
 }
@@ -96,7 +116,9 @@ export default function campusesReducer(state= initialState,action) {
     case ADD_CAMPUS:
       return{...state, campuses:[...state.campuses,action.campus]}
     case REMOVE_CAMPUS:
-      return{...state, campuses:[...state.campuses,action.campus]}
+      return{...state, campuses:[...state.campuses].filter(camp=>camp.id!== action.campusId)}
+    case UPDATE_CAMPUS:
+      return{...state, campuses:action.campuses}
     default:
       return state
   }  

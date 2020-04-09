@@ -21,8 +21,16 @@ export default class AddStudent extends React.Component{
     handleSubmit(){
         event.preventDefault()
         try{
-            this.props.addStudent(this.state)
-            console.log(this.state)
+            const updateState={
+                firstName:this.state.firstname,
+                lastName:this.state.lastname,
+                email:this.state.email,
+                imageUrl:this.state.imageUrl,
+                gpa:this.state.gpa
+            }
+
+            this.props.addStudent(updateState)
+           
         }
         catch(err){
             next(err)

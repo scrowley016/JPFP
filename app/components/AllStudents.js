@@ -19,12 +19,13 @@ export class AllStudents extends React.Component {
     this.props.fetchStudents()
   }
 
-  addStudent(){
-    this.props.postStudent()
+  addStudent(event){
+    this.props.postStudent(event)
   }
 
   removeStudent(id){
-    this.props.removeCampus(this.props.match.params.id)
+    const deleteStu= this.props.match.params.id
+    this.props.removeCampus(deleteStu)
   }
 
   render() {
@@ -36,10 +37,12 @@ export class AllStudents extends React.Component {
           students && students.map (stu =>
             <div key= {stu.id}>
                 <Students students={stu}/>
+                <button onClick={()=>this.removeStudent(stu.id)}>X</button>
               </div>)
         }
       </div>
       <div>
+        <h2>Add a Student Below:</h2>
         <AddStudent addStudent={this.addStudent}/>
       </div>
       </div>

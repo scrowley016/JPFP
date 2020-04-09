@@ -4,24 +4,24 @@ const StudentForm =(props) => (
    <form id='add-student' onSubmit={props.handleSubmit}>
     <div>
     <div>
-        <label htmlFor = 'firstname' >
+        <label htmlFor = 'firstName' >
             First Name:
         </label>
-        <input firstname='firstname' type='string' onChange={props.handleChange} value={props.firstName} />
+        <input name='firstName' type='string' onChange={props.handleChange} value={props.firstName} />
     </div>
 
     <div>
-        <label htmlFor = 'lastname'>
+        <label htmlFor = 'lastName'>
             Last Name:
         </label>
-        <input lastname='lastname' type='string' onChange={props.handleChange} value={props.lastName} />
+        <input name='lastName' type='string' onChange={props.handleChange} value={props.lastName} />
     </div>
 
     <div>
         <label htmlFor = 'email'>
             Email:
         </label>
-        <input email='email' type='string' onChange={props.handleChange} value={props.email} />
+        <input name='email' type='string' onChange={props.handleChange} value={props.email} />
     </div>
 </div>
 

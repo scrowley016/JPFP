@@ -1,16 +1,24 @@
 import React from 'react'
 import {connect} from "react-redux"
 import Axios from 'axios'
-import {fetchSingleCampus} from "../redux/campus/campuses"
-
+import {fetchSingleCampus,changeCampus} from "../redux/campus/campuses"
+import UpdateCampus from './UpdateCampus'
+``
 
 class SingleCampus extends React.Component{
     constructor(props){
         super(props)
     }
     componentDidMount(){
+        console.log(this.props)
         this.props.fetchSingleCampus(this.props.match.params.id)
     }
+    updateCampus(){
+        console.log(this.props)
+        this.props.changeCampus(this.props.match.params.id)
+      } 
+
+
     render(){
         const campus= this.props.campuses
         return(
@@ -19,15 +27,9 @@ class SingleCampus extends React.Component{
                 <h2>Name:{campus.name}</h2>
                 <h3> Address: {campus.address} </h3>
                 <h3> About this Campus: {campus.description}</h3>
-                {/* <li>{
-                this.props && this.props.students.map(stu=>{
-                    if(stu.campusId=== campus.id){
-                        return(<div>
-                            <h3>{stu.firstName} {stu.lastName}</h3>
-                            </div>)
-                    }
-                })
-                }</li> */}
+
+                <h2>Update Campus Below:</h2>
+                <UpdateCampus updateCampus={this.updateCampus}/>
             </div>
         )
     }
@@ -40,7 +42,9 @@ const mapState = (state) => {
   };
 
 const mapDispatch=(dispatch)=> ({
-    fetchSingleCampus: (id)=> dispatch(fetchSingleCampus(id))
+    fetchSingleCampus: (id)=> dispatch(fetchSingleCampus(id)),
+    changeCampus:(id)=> dispatch(changeCampus(id))
+
 })
 
 export default connect(mapState, mapDispatch)(SingleCampus)

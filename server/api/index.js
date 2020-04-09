@@ -40,6 +40,18 @@ router.post('/campuses', async(req,res,next)=>{
   }
 })
 
+router.delete('/campuses/:id', async(req,res,next)=>{
+ try{
+   const deleted= await Campus.destroy({
+     where:{id:req.params.id}
+   })
+   res.sendStatus(204)
+  }
+  catch(err){
+    next(err)
+  }
+})
+
 
 
 
