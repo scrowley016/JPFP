@@ -20,11 +20,11 @@ export default class UpdateCampus extends React.Component{
         event.preventDefault()
         try{
             const updateState={
-                id: this.props.id,
+                id:this.props.id,
                 name:this.state.name,
                 address:this.state.address
             }
-        console.log("STATE",this.state)
+    
         this.props.updateCampus(updateState)
         }
         catch(err){

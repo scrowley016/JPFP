@@ -1,5 +1,5 @@
 import React from 'react'
-import CampusForm from './CampusForm'
+import StudentForm from './StudentForm'
 
 export default class UpdateStudent extends React.Component{
     constructor(props){
@@ -9,11 +9,12 @@ export default class UpdateStudent extends React.Component{
             lastName:"",
             email:""
         }
-        this.handleChane=this.handleChange.bind(this)
+        this.handleChange=this.handleChange.bind(this)
         this.handleSubmit=this.handleSubmit.bind(this)
     }
     handleChange(event){
-        this.setState({[event.target.name]: event.target.value})
+        this.setState({[event.target.name]:event.target.value})
+        console.log(this.state)
     }
     handleSubmit(event){
         event.preventDefault()
@@ -21,19 +22,19 @@ export default class UpdateStudent extends React.Component{
             const updateState={
                 id:this.props.id,
                 firstName:this.state.firstName,
-                lastName: this.state.lastName,
+                lastName:this.state.lastName,
                 email:this.state.email
             }
-            this.props.updateStudent(updateState)
+        this.props.updateStudent(updateState)
         }
         catch(err){
             console.error(err)
         }
     }
     render(){
-        renturn(
+        return(
             <div>
-                <StudentForm handleChane= {this.handleChange} handleSubmit= {this.handleSubmit}/>
+                <StudentForm handleChange= {this.handleChange} handleSubmit= {this.handleSubmit}/>
             </div>
         )
     }

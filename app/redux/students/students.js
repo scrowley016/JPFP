@@ -31,7 +31,7 @@ export const removeStu =(studentId)=>{
     studentId
   }
 }
-export const updateCampus=(student)=>{
+export const updateStu=(student)=>{
   return{
     type:UPDATE_STUDENT,
     student
@@ -64,10 +64,10 @@ export const fetchSingleStudent=(id)=>{
   }
 }
 
-export const postStudent=(id)=>{
+export const postStudent=(event)=>{
   return async dispatch =>{
     try{
-      const {data} = await Axios.post("api/students", id)
+      const {data} = await Axios.post("api/students", event)
       dispatch(setNewStudent(data))
     }
     catch(err){
@@ -91,8 +91,8 @@ export const deleteStudent=(id)=>{
 export const changeStudent=(student)=>{
   return async dispatch =>{
     try{
-      const {data}= await Axios.put(`/api/students/${student.id}`,campus)
-      dispatch(updateStudent(data))
+      const {data} = await Axios.put(`/api/students/${student.id}`, student)
+      dispatch(updateStu(data))
     }
     catch(error){
       dispatch(console.error(error))

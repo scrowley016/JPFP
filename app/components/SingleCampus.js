@@ -1,6 +1,5 @@
 import React from 'react'
 import {connect} from "react-redux"
-import Axios from 'axios'
 import {fetchSingleCampus,changeCampus} from "../redux/campus/campuses"
 import UpdateCampus from './UpdateCampus'
 ``
@@ -16,7 +15,6 @@ class SingleCampus extends React.Component{
     }
 
     updateCampus(campus){
-        console.log("SINGLE CAMPUS", campus)
         this.props.changeCampus(campus)
       } 
 

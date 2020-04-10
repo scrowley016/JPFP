@@ -1,16 +1,20 @@
 import React from 'react'
 import {connect} from "react-redux"
-import Axios from 'axios'
-import {fetchSingleStudent} from "../redux/students/students"
+import {fetchSingleStudent, changeStudent} from "../redux/students/students"
 import {Link} from 'react-router-dom'
+import UpdateStudent from './UpdateStudent'
 
 class SingleStudent extends React.Component{
     constructor(props){
         super(props)
+        this.updateStudent=this.updateStudent.bind(this)
     }
     componentDidMount(){
         this.props.fetchSingleStudent(this.props.match.params.id)
     }
+    updateStudent(student){
+        this.props.changeStudent(student)
+      } 
 
     render(){
         const stu = this.props.students
@@ -26,7 +30,7 @@ class SingleStudent extends React.Component{
 
                 <div>
                         <h2>Update Student Below:</h2>
-                        <UpdateStudent updateStudent ={this.updateCampus} id= {stu.id}/>
+                        <UpdateStudent updateStudent ={this.updateStudent} id={stu.id}/>
                 </div>
             </div>
         )
@@ -39,7 +43,8 @@ const mapState =(state) =>{
 }
 const mapDispatch=(dispatch)=>{
     return{
-        fetchSingleStudent: (id)=> dispatch(fetchSingleStudent(id))
+        fetchSingleStudent:(id)=> dispatch(fetchSingleStudent(id)),
+        changeStudent:(id)=>dispatch(changeStudent(id))
     }
 }
 
