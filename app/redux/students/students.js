@@ -4,6 +4,8 @@ const SET_STUDENTS ="SET_STUDENTS"
 const SINGLE_STUDENT ="SINGLE_STUDENT"
 const ADD_STUDENT="ADD_STUDENT"
 const REMOVE_STUDENT= "REMOVE_STUDENT"
+const UPDATE_STUDENT="UPDATE_STUDENT"
+
 
 export const setStudents = (students) => {
   return{
@@ -27,6 +29,12 @@ export const removeStu =(studentId)=>{
   return{
     type:REMOVE_STUDENT,
     studentId
+  }
+}
+export const updateCampus=(student)=>{
+  return{
+    type:UPDATE_STUDENT,
+    student
   }
 }
 
@@ -80,6 +88,18 @@ export const deleteStudent=(id)=>{
   }
 }
 
+export const changeStudent=(student)=>{
+  return async dispatch =>{
+    try{
+      const {data}= await Axios.put(`/api/students/${student.id}`,campus)
+      dispatch(updateStudent(data))
+    }
+    catch(error){
+      dispatch(console.error(error))
+    }
+  }
+}
+
 
 
 
@@ -98,6 +118,8 @@ export default function studentsReducer(state= initialState,action) {
       return{...state, students:[...state.students,action.students]}
     case REMOVE_STUDENT:
       return{...state, students:[...state.students].filter(stu=>stu.id!==action.studentId)}
+    case UPDATE_STUDENT:
+      return{...state, singleStudent:action.student}
     default:
       return state
   } 

@@ -122,7 +122,7 @@ export default function campusesReducer(state= initialState,action) {
     case REMOVE_CAMPUS:
       return{...state, campuses:[...state.campuses].filter(camp=>camp.id!== action.campusId)}
     case UPDATE_CAMPUS:
-      return{...state, campuses:action.campuses}
+      return{...state, singleCampus:action.campus}
     default:
       return state
   }  

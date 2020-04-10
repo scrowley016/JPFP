@@ -23,6 +23,11 @@ class SingleStudent extends React.Component{
                 <Link to = {`/campuses/${stu.campusId}`}>
                         <h3>Campus Name:{stu.campusId}</h3>
                 </Link>
+
+                <div>
+                        <h2>Update Student Below:</h2>
+                        <UpdateStudent updateStudent ={this.updateCampus} id= {stu.id}/>
+                </div>
             </div>
         )
     }
