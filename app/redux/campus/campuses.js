@@ -69,7 +69,7 @@ export const fetchSingleCampus=(id)=>{
 export const postCampus=(event)=>{
   return async dispatch=>{
     try{
-      const {data}= await Axios.post("/api/campuses", event)
+      const {data} = await Axios.post("/api/campuses", event)
       dispatch(setNewCampus(data))
     }
     catch(error){

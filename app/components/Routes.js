@@ -15,7 +15,8 @@ const Routes = () => {
         <NavBar/>
         </nav>
         <main>
-          <h1>Welcome to the Dunder Mifflin Academy of JavaScript!</h1>
+          <h1>WELCOME TO THE DUNDER MIFFLIN ACADEMY OF JAVASCRIPT!</h1>
+          <img src="https://lh3.googleusercontent.com/proxy/QRGflYVzeCOOB86oIddAmbyOLtIVMH2JdBc8c15ejLqZuZJZvXk_5kacPT9-o0Y8adlP-YHuRiDtnMVO5UUvjjsX0E66IDV5rJmWD6HhXA5BLSBc_Jrnn4PGWYBcpyqOsLSX4lbVwQVPMwbHww" height="200" width="350"/>
           <Route exact path="/campuses" component ={AllCampuses}/>
           <Route exact path="/students" component ={AllStudents}/>
           <Route path= "/campuses/:id" component ={SingleCampus}/>

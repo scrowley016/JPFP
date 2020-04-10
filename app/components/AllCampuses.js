@@ -18,8 +18,8 @@ export class AllCampuses extends React.Component {
     this.props.fetchCampuses()
   }
 
-  addCampus(event){
-    this.props.postCampus(event)
+  addCampus(id){
+    this.props.postCampus(id)
   }
 
   removeCampus(id){
@@ -28,13 +28,12 @@ export class AllCampuses extends React.Component {
 
   render() {
     let allCamps= this.props.campuses
-    console.log(this.props)
     return(
       <div>
       <div>
         {
           allCamps && allCamps.map(camp =>
-            <div key={camp.id}>
+            <div key={camp.id} id={"campus"}>
               <Campus campuses={camp}/>
               <button onClick={ () =>this.removeCampus(camp.id)}> X </button>
             </div>)

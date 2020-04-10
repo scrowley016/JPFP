@@ -11,7 +11,7 @@ const Students =(props)=>{
                 <Link to={{pathname:`/students/${student.id}`,state:{} }}>
                     <h2>Name:{student.firstName} {student.lastName}</h2>
                 </Link>
-                <img src={student.imageUrl} width ="100" height="100"/>
+                <img src={student.imageUrl} width ="300" height="200"/>
             </ul>
         </div>
     )

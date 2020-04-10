@@ -18,8 +18,8 @@ export class AllStudents extends React.Component {
     this.props.fetchStudents()
   }
 
-  addStudent(event){
-    this.props.postStudent(event)
+  addStudent(id){
+    this.props.postStudent(id)
   }
 
   removeStudent(id){
@@ -33,12 +33,14 @@ export class AllStudents extends React.Component {
       <div>
         {
           students && students.map(stu =>
-            <div key={stu.id}>
+            <div key={stu.id} id={"student"}>
                 <Students students={stu}/>
                 <button onClick={ () =>this.removeStudent(stu.id)}> X </button>
               </div>)
         }
       </div>
+
+      
       <div>
         <h2>Add a Student Below:</h2>
         <AddStudent addStudent={this.addStudent}/>

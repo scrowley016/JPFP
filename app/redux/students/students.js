@@ -65,12 +65,12 @@ export const fetchSingleStudent=(id)=>{
 }
 
 export const postStudent=(event)=>{
-  return async dispatch =>{
+  return async dispatch=>{
     try{
-      const {data} = await Axios.post("api/students", event)
+      const {data} = await Axios.post("/api/students", event)
       dispatch(setNewStudent(data))
     }
-    catch(err){
+    catch(error){
       dispatch(console.error(error))
     }
   }
@@ -115,7 +115,7 @@ export default function studentsReducer(state= initialState,action) {
     case SINGLE_STUDENT:
       return{...state, singleStudent:action.student}
     case ADD_STUDENT:
-      return{...state, students:[...state.students,action.students]}
+      return{...state, students:[...state.students,action.student]}
     case REMOVE_STUDENT:
       return{...state, students:[...state.students].filter(stu=>stu.id!==action.studentId)}
     case UPDATE_STUDENT:
