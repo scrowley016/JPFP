@@ -14,8 +14,8 @@ export default class UpdateStudent extends React.Component{
     }
     handleChange(event){
         this.setState({[event.target.name]:event.target.value})
-        console.log(this.state)
     }
+
     handleSubmit(event){
         event.preventDefault()
         try{
@@ -31,6 +31,8 @@ export default class UpdateStudent extends React.Component{
             console.error(err)
         }
     }
+
+
     render(){
         return(
             <div>

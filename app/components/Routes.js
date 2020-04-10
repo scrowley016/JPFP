@@ -4,7 +4,6 @@ import AllCampuses from "./AllCampuses"
 import AllStudents from "./AllStudents";
 import SingleCampus from "./SingleCampus"
 import SingleStudents from "./SingleStudent"
-import Axios from "axios";
 import NavBar from "./NavBar";
 
 const Routes = () => {
