@@ -40,7 +40,7 @@ export class AllStudents extends React.Component {
         }
       </div>
 
-      
+
       <div>
         <h2>Add a Student Below:</h2>
         <AddStudent addStudent={this.addStudent}/>
@@ -59,6 +59,7 @@ const mapState = (state) => {
 const mapDispatch = (dispatch) => {
   return {
     fetchStudents:()=> dispatch(fetchStudents()),
+    // postStudent does not expect an ID; it expects a student, which is an object with keys (model fields/columns) and values (the input fields in the form)
     postStudent:(id)=> dispatch(postStudent(id)),
     deleteStudent:(id)=> dispatch(deleteStudent(id))
   };

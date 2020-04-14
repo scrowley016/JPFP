@@ -47,6 +47,7 @@ export const fetchStudents = () => {
       dispatch(setStudents(data))
     }
     catch(error){
+      // Why are console.errors being dispatched?
       dispatch(console.error(error))
     }
   }
@@ -64,6 +65,7 @@ export const fetchSingleStudent=(id)=>{
   }
 }
 
+// postStudent should expect a student to create so it makes more sense to name the argument variable "student" instead of "event"
 export const postStudent=(event)=>{
   return async dispatch=>{
     try{
@@ -122,5 +124,5 @@ export default function studentsReducer(state= initialState,action) {
       return{...state, singleStudent:action.student}
     default:
       return state
-  } 
+  }
 }

@@ -49,6 +49,7 @@ export const fetchCampuses = () => {
       dispatch(setCampuses(data))
 
     }catch(error){
+      // Why are console.errors being dispatched?
       dispatch(console.error(error))
     }
   }
@@ -66,6 +67,7 @@ export const fetchSingleCampus=(id)=>{
   }
 }
 
+// postCampus should expect a campus to create so it makes more sense to name the argument variable "campus" instead of "event"
 export const postCampus=(event)=>{
   return async dispatch=>{
     try{
@@ -125,5 +127,5 @@ export default function campusesReducer(state= initialState,action) {
       return{...state, singleCampus:action.campus}
     default:
       return state
-  }  
+  }
 }

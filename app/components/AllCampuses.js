@@ -58,6 +58,7 @@ const mapState = (state) => {
 const mapDispatch = (dispatch) => {
   return {
     fetchCampuses:()=> dispatch(fetchCampuses()),
+    // postCampus does not expect an ID; it expects a campus, which is an object with keys (model fields/columns) and values (the input fields in the form)
     postCampus:(id)=> dispatch(postCampus(id)),
     deleteCampus:(id)=> dispatch(deleteCampus(id))
   };
